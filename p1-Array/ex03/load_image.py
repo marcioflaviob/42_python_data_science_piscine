@@ -10,5 +10,10 @@ def ft_load(path: str) -> np.ndarray:
     p = Path(path)
     if not p.exists():
         raise FileNotFoundError(f"No such file: {path}")
-    img = Image.open(p).convert("RGB")
-    return np.array(img, dtype=np.uint8)
+    try:
+        img = Image.open(p).convert("RGB")
+        arr = np.array(img, dtype=np.uint8)
+    except Exception as e:
+        raise ValueError(f"Could not load image: {e}")
+    print(f"The shape of the image is: {arr.shape}")
+    return arr

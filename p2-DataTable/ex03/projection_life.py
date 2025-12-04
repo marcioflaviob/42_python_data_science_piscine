@@ -6,16 +6,15 @@ def main():
     """
     Display the projection of life expectancy vs GDP per capita for year 1900.
     """
-    # Renamed the file to have a shorter name
-    gdp_df = load("../income_per_person_gdp.csv")
-    life_df = load("../life_expectancy_years.csv")
-
-    if gdp_df is None or life_df is None:
-        return
-
-    year = "1900"
-
     try:
+        # Renamed the file to have a shorter name
+        gdp_df = load("../income_per_person_gdp.csv")
+        life_df = load("../life_expectancy_years.csv")
+
+        if gdp_df is None or life_df is None:
+            return
+
+        year = "1900"
         # Check if year exists in both datasets
         if year not in gdp_df.columns or year not in life_df.columns:
             print(f"Error: Year {year} not found in datasets")

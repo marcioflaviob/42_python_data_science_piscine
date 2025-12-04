@@ -27,6 +27,7 @@ def main():
     """
     Load population data and compare two countries from 1800 to 2050.
     """
+    try:
     df = load("../population_total.csv")
 
     if df is None:
@@ -34,8 +35,6 @@ def main():
 
     country1 = "France"
     country2 = "Brazil"
-
-    try:
         country1_data = df[df['country'] == country1]
         country2_data = df[df['country'] == country2]
 

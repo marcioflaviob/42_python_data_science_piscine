@@ -6,10 +6,10 @@ def main():
     """
     Load life expectancy data and display graph for a specific country.
     """
-    df = load("../life_expectancy_years.csv")
-    if df is None:
-        return
     try:
+        df = load("../life_expectancy_years.csv")
+        if df is None:
+            return
         country_data = df[df['country'] == 'France']
 
         if country_data.empty:
